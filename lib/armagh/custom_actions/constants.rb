@@ -18,6 +18,6 @@
 module Armagh
   module CustomActions
     NAME = 'armagh_test'
-    VERSION = '0.0.2-dev'
+    VERSION = '0.0.3-dev'
   end
 end

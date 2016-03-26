@@ -20,29 +20,29 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestSubscriber < SubscribeAction
+    class TestConsumer < ConsumeAction
 
-      define_output_docspec 'subscribe_output'
+      define_output_docspec 'consume_output'
 
-      def subscribe(doc)
-        @logger.unknown 'Test Subscribe Running'
+      def consume(doc)
+        @logger.unknown 'Test Consume Running'
         @logger.unknown "Document ID: #{doc.id}"
 
-        edit('subscribe_1', 'subscribe_output') do |edit_doc|
+        edit('consume_1', 'consume_output') do |edit_doc|
           edit_doc.draft_content['text_1'] = 'text_content_1'
           edit_doc.meta['touched_by'] ||= []
           edit_doc.meta['touched_by'] << 'block_1'
           edit_doc.meta['new'] = 'block_1' if edit_doc.new_document?
         end
 
-        edit('subscribe_2', 'subscribe_output') do |edit_doc|
+        edit('consume_2', 'consume_output') do |edit_doc|
           edit_doc.draft_content['text_2'] = 'text_content_2'
           edit_doc.meta['touched_by'] ||= []
           edit_doc.meta['touched_by'] << 'block_2'
           edit_doc.meta['new'] = 'block_2' if edit_doc.new_document?
         end
 
-        edit('subscribe_1', 'subscribe_output') do |edit_doc|
+        edit('consume_1', 'consume_output') do |edit_doc|
           edit_doc.draft_content['text_3'] = 'text_content_3'
           edit_doc.meta['touched_by'] ||= []
           edit_doc.meta['touched_by'] << 'block_3'
