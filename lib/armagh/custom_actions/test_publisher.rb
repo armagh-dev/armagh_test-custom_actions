@@ -23,8 +23,8 @@ module Armagh
     class TestPublisher < PublishAction
 
       def publish(doc)
-        @logger.unknown 'Test Publish Running'
-        @logger.unknown "Document ID: #{doc.id}"
+        @logger.any 'Test Publish Running'
+        @logger.any "Document ID: #{doc.id}"
         sleep 1
       end
 

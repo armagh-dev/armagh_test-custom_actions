@@ -25,8 +25,8 @@ module Armagh
       define_output_docspec 'consume_output'
 
       def consume(doc)
-        @logger.unknown 'Test Consume Running'
-        @logger.unknown "Document ID: #{doc.id}"
+        @logger.any 'Test Consume Running'
+        @logger.any "Document ID: #{doc.id}"
 
         edit('consume_1', 'consume_output') do |edit_doc|
           edit_doc.draft_content['text_1'] = 'text_content_1'

@@ -25,7 +25,7 @@ module Armagh
       define_output_docspec 'split_collected_document'
 
       def collect
-        @logger.unknown 'Test Collect Running'
+        @logger.any 'Test Collect Running'
         sleep 1
         create('123_collected', 'collected content', {}, 'collected_document')
         create('123_collected_to_split', "content\nfor\nsplitting", {}, 'split_collected_document')
