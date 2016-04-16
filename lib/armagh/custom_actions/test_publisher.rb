@@ -25,6 +25,9 @@ module Armagh
       def publish(doc)
         @logger.any 'Test Publish Running'
         @logger.any "Document ID: #{doc.id}"
+
+        doc.draft_content.merge! doc.published_content
+
         sleep 1
       end
 
