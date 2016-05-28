@@ -27,6 +27,7 @@ module Armagh
         @logger.any "Document ID: #{doc.id}"
 
         doc.draft_content.merge! doc.published_content
+        doc.draft_metadata.merge! doc.published_metadata
 
         sleep 1
       end
