@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestEditCurrentParser < ParseAction
+    class TestEditCurrentParser < Actions::Parse
       define_output_docspec 'edit_current_parser_output'
       
       def parse(doc)

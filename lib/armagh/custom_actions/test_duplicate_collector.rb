@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestDuplicateCollector < CollectAction
+    class TestDuplicateCollector < Actions::Collect
       define_output_docspec 'duplicate_collector_output'
       
       def collect

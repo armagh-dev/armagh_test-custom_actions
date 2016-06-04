@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestPublisher < PublishAction
+    class TestPublisher < Actions::Publish
 
       def publish(doc)
         @logger.any 'Test Publish Running'

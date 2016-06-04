@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestConsumer < ConsumeAction
+    class TestConsumer < Actions::Consume
 
       define_output_docspec 'consume_output'
 

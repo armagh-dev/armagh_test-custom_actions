@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestUnimplementedParser < ParseAction
+    class TestUnimplementedParser < Actions::Parse
       define_output_docspec 'unimplemented_parser_output'
     end
   end

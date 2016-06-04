@@ -19,7 +19,7 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
-    class TestParser < ParseAction
+    class TestParser < Actions::Parse
       define_output_docspec 'parse_output'
 
       def parse(doc)

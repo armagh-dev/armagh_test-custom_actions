@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestUpdateErrorParser < ParseAction
+    class TestUpdateErrorParser < Actions::Parse
       define_output_docspec 'update_error_parser_output'
       
       def parse(doc)

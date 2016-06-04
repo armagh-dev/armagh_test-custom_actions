@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestSplitter < CollectionSplitter
+    class TestSplitter < Actions::CollectionSplitter
 
       def split(doc)
         content = File.read(doc.collected_file)

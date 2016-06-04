@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestTooLargeCollector < CollectAction
+    class TestTooLargeCollector < Actions::Collect
       define_output_docspec 'too_large_collector_output'
       
       def collect

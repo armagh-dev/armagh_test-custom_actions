@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestCollector < CollectAction
+    class TestCollector < Actions::Collect
       define_output_docspec 'collected_document'
       define_output_docspec 'split_collected_document'
 

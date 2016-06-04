@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestBadPublisher < PublishAction
+    class TestBadPublisher < Actions::Publish
 
       def publish(doc)
         raise 'poorly implemented'

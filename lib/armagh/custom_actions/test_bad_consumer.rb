@@ -19,7 +19,7 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
-    class TestBadConsumer < ConsumeAction
+    class TestBadConsumer < Actions::Consume
       def consume(doc)
         raise 'poorly implemented'
         sleep 1

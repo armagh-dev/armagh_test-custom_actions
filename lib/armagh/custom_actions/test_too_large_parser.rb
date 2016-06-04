@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestTooLargeParser < ParseAction
+    class TestTooLargeParser < Actions::Parse
       define_output_docspec 'too_large_parser_output'
       
       def parse(doc)
