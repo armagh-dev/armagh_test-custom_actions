@@ -22,9 +22,9 @@ module Armagh
 
     class TestEditCurrentParser < Actions::Parse
       define_output_docspec 'edit_current_parser_output'
-      
+
       def parse(doc)
-        @logger.any 'Edit Current Parser Running'
+        log_info { 'Edit Current Parser Running' }
 
         edit(doc.id, 'edit_current_parser_output') do |edit_doc|
           edit_doc.draft_content['test_content'] = 'This should not be saved'

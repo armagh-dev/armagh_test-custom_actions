@@ -22,9 +22,9 @@ module Armagh
 
     class TestDuplicateCollector < Actions::Collect
       define_output_docspec 'duplicate_collector_output'
-      
+
       def collect
-        @logger.any 'Duplicate Collector Running'
+        log_info { 'Duplicate Collector Running' }
 
         create('123', 'collected content', {}, 'duplicate_collector_output')
         create('123', 'collected content', {}, 'duplicate_collector_output')

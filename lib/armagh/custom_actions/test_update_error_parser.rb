@@ -22,9 +22,9 @@ module Armagh
 
     class TestUpdateErrorParser < Actions::Parse
       define_output_docspec 'update_error_parser_output'
-      
+
       def parse(doc)
-        @logger.any 'Update Error Parser Running'
+        log_info { 'Update Error Parser Running' }
 
         edit('update_id', 'update_error_parser_output') do |edit_doc|
           edit_doc.draft_content['update'] = 'This should not be saved'

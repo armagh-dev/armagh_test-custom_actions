@@ -25,8 +25,8 @@ module Armagh
       def split(doc)
         content = File.read(doc.collected_file)
 
-        @logger.any 'Test Collect Splitter Running'
-        @logger.any "Document ID: #{doc.id}"
+        log_info { 'Test Collect Splitter Running' }
+        log_info { "Document ID: #{doc.id}" }
         sleep 1
         create('123_collected_post_split', content.gsub("\n", '-'), {'split' => true})
       end

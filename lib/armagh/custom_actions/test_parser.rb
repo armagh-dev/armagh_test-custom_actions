@@ -23,8 +23,8 @@ module Armagh
       define_output_docspec 'parse_output'
 
       def parse(doc)
-        @logger.any 'Test Parse Running'
-        @logger.any "Document ID: #{doc.id}"
+        log_info { 'Test Parse Running' }
+        log_info { "Document ID: #{doc.id}" }
 
         edit('parse_1', 'parse_output') do |edit_doc|
           edit_doc.draft_content['text_1'] = 'text_content_1'

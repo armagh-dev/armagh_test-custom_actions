@@ -22,9 +22,9 @@ module Armagh
 
     class TestTooLargeCollector < Actions::Collect
       define_output_docspec 'too_large_collector_output'
-      
+
       def collect
-        @logger.any 'Too Large Collector Running'
+        log_info { 'Too Large Collector Running' }
 
         create('123', 'a' * 100_000_000, {}, 'too_large_collector_output')
         sleep 1

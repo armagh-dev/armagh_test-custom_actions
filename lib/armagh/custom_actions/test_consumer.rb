@@ -25,8 +25,8 @@ module Armagh
       define_output_docspec 'consume_output'
 
       def consume(doc)
-        @logger.any 'Test Consume Running'
-        @logger.any "Document ID: #{doc.id}"
+        log_info { 'Test Consume Running' }
+        log_info { "Document ID: #{doc.id}" }
 
         edit('consume_1', 'consume_output') do |edit_doc|
           edit_doc.draft_content['text_1'] = 'text_content_1'
@@ -48,7 +48,7 @@ module Armagh
           edit_doc.draft_metadata['touched_by'] << 'block_3'
           edit_doc.draft_metadata['new'] = 'block_3' if edit_doc.new_document?
         end
-        
+
         sleep 1
       end
 

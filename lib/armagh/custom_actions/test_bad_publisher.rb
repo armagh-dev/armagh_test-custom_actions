@@ -19,14 +19,11 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
-
     class TestBadPublisher < Actions::Publish
-
       def publish(doc)
         raise 'poorly implemented'
         sleep 1
       end
-
     end
   end
 end

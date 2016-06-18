@@ -23,8 +23,8 @@ module Armagh
     class TestPublisher < Actions::Publish
 
       def publish(doc)
-        @logger.any 'Test Publish Running'
-        @logger.any "Document ID: #{doc.id}"
+        log_info { 'Test Publish Running' }
+        log_info { "Document ID: #{doc.id}" }
 
         doc.draft_content.merge! doc.published_content
         doc.draft_metadata.merge! doc.published_metadata
