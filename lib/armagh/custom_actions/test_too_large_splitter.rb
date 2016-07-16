@@ -20,14 +20,15 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestEditCurrentParser < Actions::Parse
-      define_output_docspec 'edit_current_parser_output'
+    class TestTooLargeSplitter < Actions::Split
+      define_output_docspec 'too_large_splitter_output'
 
-      def parse(doc)
-        log_info { 'Edit Current Parser Running' }
+      def split(doc)
+        log_info { 'Too Large Splitter Running' }
 
-        edit(doc.id, 'edit_current_parser_output') do |edit_doc|
-          edit_doc.draft_content['test_content'] = 'This should not be saved'
+        edit('split_123', 'too_large_splitter_output') do |edit_doc|
+          edit_doc.content['test_content'] = 'This should not be saved'
+          edit_doc.content['too_big'] = 'a' * TOO_LARGE_SIZE
         end
         sleep 1
       end

@@ -20,18 +20,16 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestUpdateErrorParser < Actions::Parse
-      define_output_docspec 'update_error_parser_output'
+    class TestDivider < Actions::Divide
 
-      def parse(doc)
-        log_info { 'Update Error Parser Running' }
+      def divide(doc)
+        content = File.read(doc.collected_file)
 
-        edit('update_id', 'update_error_parser_output') do |edit_doc|
-          edit_doc.draft_content['update'] = 'This should not be saved'
-          raise 'Failure'
-        end
+        log_info { 'Test Divider Running' }
         sleep 1
+        create(content.gsub("\n", '-'), {'divide' => true})
       end
+
     end
   end
 end

@@ -20,11 +20,15 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestPublisher < Actions::Publish
+    class TestChangeIdPublisher < Actions::Publish
 
       def publish(doc)
-        log_info { 'Test Publish Running' }
-        log_info { "Document ID: #{doc.document_id}" }
+        log_info { 'Test Change ID Publish Running' }
+        log_info { "Original Document ID: #{doc.document_id}" }
+
+        doc.document_id = 'new_id'
+
+        log_info { "New Document ID: #{doc.document_id}" }
 
         published_doc = get_existing_published_document(doc)
 

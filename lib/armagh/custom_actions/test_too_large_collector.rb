@@ -16,6 +16,7 @@
 #
 
 require 'armagh/actions'
+require_relative 'constants'
 
 module Armagh
   module CustomActions
@@ -26,7 +27,8 @@ module Armagh
       def collect
         log_info { 'Too Large Collector Running' }
 
-        create('123', 'a' * 100_000_000, {}, 'too_large_collector_output')
+        source = {'type' => 'url', 'url' => 'from test'}
+        create('a' * TOO_LARGE_SIZE, {}, 'too_large_collector_output', source)
         sleep 1
       end
     end

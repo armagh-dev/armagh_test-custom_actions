@@ -20,18 +20,8 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestTooLargeParser < Actions::Parse
-      define_output_docspec 'too_large_parser_output'
-
-      def parse(doc)
-        log_info { 'Too Large Parser Running' }
-
-        edit('parse_123', 'too_large_parser_output') do |edit_doc|
-          edit_doc.draft_content['test_content'] = 'This should not be saved'
-          edit_doc.draft_content['too_big'] = 'a' * 100_000_000
-        end
-        sleep 1
-      end
+    class TestUnimplementedSplitter < Actions::Split
+      define_output_docspec 'unimplemented_splitter_output'
     end
   end
 end

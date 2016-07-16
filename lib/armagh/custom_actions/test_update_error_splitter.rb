@@ -20,17 +20,18 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestParserNotifyOps < Actions::Parse
+    class TestUpdateErrorSplitter < Actions::Split
+      define_output_docspec 'update_error_splitter_output'
 
-      define_output_docspec 'consume_output'
+      def split(doc)
+        log_info { 'Update Error Splitter Running' }
 
-      def parse(doc)
-        notify_ops 'Ops Error'
-
+        edit('update_id', 'update_error_splitter_output') do |edit_doc|
+          edit_doc.content['update'] = 'This should not be saved'
+          raise 'Failure'
+        end
         sleep 1
-        log_info 'Test Parse Notify Ops Complete'
       end
-
     end
   end
 end

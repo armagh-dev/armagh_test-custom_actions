@@ -20,15 +20,15 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestParserNotifyDev < Actions::Parse
+    class TestSplitterNotifyDev < Actions::Split
 
       define_output_docspec 'consume_output'
 
-      def parse(doc)
+      def split(doc)
         notify_dev 'Dev Error'
 
         sleep 1
-        log_info 'Test Parse Notify Dev Complete'
+        log_info 'Test Split Notify Dev Complete'
       end
 
     end

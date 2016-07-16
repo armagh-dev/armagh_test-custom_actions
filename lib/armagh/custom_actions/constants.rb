@@ -18,6 +18,8 @@
 module Armagh
   module CustomActions
     NAME = 'armagh_test'
-    VERSION = '0.0.9'
+    VERSION = '0.5.0'
+
+    TOO_LARGE_SIZE = 100_000_000
   end
 end

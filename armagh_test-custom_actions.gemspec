@@ -19,10 +19,25 @@
 
 require_relative 'lib/armagh/custom_actions/constants'
 
+def get_build_version(version)
+  if ENV['ARMAGH_PRODUCTION_RELEASE']
+    version
+  else
+    revision = `hg identify --num 2>/dev/null`.strip.gsub('+', '-dev')
+    if revision.empty?
+      "#{version}-dev"
+    else
+      "#{version}.#{revision}"
+    end
+  end
+rescue
+  "#{version}-dev"
+end
+
 Gem::Specification.new do |spec|
   spec.name          = 'armagh_test-custom_actions'
-  spec.version       = Armagh::CustomActions::VERSION
-  spec.authors       = ['unknown']
+  spec.version       = get_build_version Armagh::CustomActions::VERSION
+  spec.authors       = ['Noragh Analytics, Inc.']
   spec.email         = []
   spec.summary       = "Armagh custom actions - #{Armagh::CustomActions::NAME}"
   spec.description   = ''
@@ -35,9 +50,9 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'armagh-base-actions', '< 2.0'
 
-  spec.add_development_dependency 'noragh-gem-tasks'
+  spec.add_development_dependency 'noragh-gem-tasks', '~> 0.1'
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'mocha', '~> 1.1'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'test-unit'
+  spec.add_development_dependency 'test-unit', '~> 3.0'
 end

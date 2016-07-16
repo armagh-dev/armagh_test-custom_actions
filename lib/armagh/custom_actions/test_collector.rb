@@ -22,13 +22,14 @@ module Armagh
 
     class TestCollector < Actions::Collect
       define_output_docspec 'collected_document'
-      define_output_docspec 'split_collected_document'
+      define_output_docspec 'divide_collected_document'
 
       def collect
         log_info { 'Test Collect Running' }
         sleep 1
-        create('123_collected', 'collected content', {}, 'collected_document')
-        create('123_collected_to_split', "content\nfor\nsplitting", {}, 'split_collected_document')
+        source = {'type' => 'url', 'url' => 'from test'}
+        create('collected content', {}, 'collected_document', source)
+        create("content\nfor\ndividing", {}, 'divide_collected_document', source)
       end
     end
   end

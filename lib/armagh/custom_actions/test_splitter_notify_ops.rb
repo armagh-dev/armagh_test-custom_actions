@@ -20,16 +20,17 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestDuplicateCollector < Actions::Collect
-      define_output_docspec 'duplicate_collector_output'
+    class TestSplitterNotifyOps < Actions::Split
 
-      def collect
-        log_info { 'Duplicate Collector Running' }
+      define_output_docspec 'consume_output'
 
-        create('123', 'collected content', {}, 'duplicate_collector_output')
-        create('123', 'collected content', {}, 'duplicate_collector_output')
+      def split(doc)
+        notify_ops 'Ops Error'
+
         sleep 1
+        log_info 'Test Split Notify Ops Complete'
       end
+
     end
   end
 end
