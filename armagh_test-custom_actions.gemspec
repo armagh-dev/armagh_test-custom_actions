@@ -19,7 +19,7 @@
 
 require_relative 'lib/armagh/custom_actions/constants'
 
-def get_build_version(version)
+def self.get_build_version(version)
   if ENV['ARMAGH_PRODUCTION_RELEASE']
     version
   else
@@ -54,5 +54,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'mocha', '~> 1.1'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'test-unit', '~> 3.0'
+  spec.add_development_dependency 'test-unit', '~> 3.1'
 end
