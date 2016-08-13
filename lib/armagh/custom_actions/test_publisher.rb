@@ -39,8 +39,8 @@ module Armagh
         doc.content.merge! published_content
         doc.metadata.merge! published_metadata
 
-        doc.title = 'The Title'
-        doc.copyright = 'Copyright the future'
+        doc.title     = fix_encoding 'The Title'
+        doc.copyright = fix_encoding 'Copyright the future', 'utf-8'
 
         sleep 1
       end
