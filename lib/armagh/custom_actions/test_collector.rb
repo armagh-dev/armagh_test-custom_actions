@@ -21,8 +21,8 @@ module Armagh
   module CustomActions
 
     class TestCollector < Actions::Collect
-      define_output_docspec 'collected_document'
-      define_output_docspec 'divide_collected_document'
+      define_output_docspec 'collected_document', 'Document directly collected'
+      define_output_docspec 'divide_collected_document', 'Document that had a divider'
 
       def collect
         log_info { 'Test Collect Running' }

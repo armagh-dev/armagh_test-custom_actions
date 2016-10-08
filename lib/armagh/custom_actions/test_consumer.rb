@@ -22,7 +22,7 @@ module Armagh
 
     class TestConsumer < Actions::Consume
 
-      define_output_docspec 'consume_output'
+      define_output_docspec 'consume_output', 'Output of the consumer'
 
       def consume(doc)
         log_info { 'Test Consume Running' }

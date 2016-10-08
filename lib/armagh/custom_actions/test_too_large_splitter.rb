@@ -21,7 +21,7 @@ module Armagh
   module CustomActions
 
     class TestTooLargeSplitter < Actions::Split
-      define_output_docspec 'too_large_splitter_output'
+      define_output_docspec 'too_large_splitter_output', 'Split output'
 
       def split(doc)
         log_info { 'Too Large Splitter Running' }

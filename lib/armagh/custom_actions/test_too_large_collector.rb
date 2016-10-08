@@ -22,7 +22,7 @@ module Armagh
   module CustomActions
 
     class TestTooLargeCollector < Actions::Collect
-      define_output_docspec 'too_large_collector_output'
+      define_output_docspec 'too_large_collector_output', 'Collect output'
 
       def collect
         log_info { 'Too Large Collector Running' }

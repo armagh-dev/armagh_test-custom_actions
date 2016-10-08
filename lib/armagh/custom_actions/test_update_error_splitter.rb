@@ -21,7 +21,7 @@ module Armagh
   module CustomActions
 
     class TestUpdateErrorSplitter < Actions::Split
-      define_output_docspec 'update_error_splitter_output'
+      define_output_docspec 'update_error_splitter_output', 'split output'
 
       def split(doc)
         log_info { 'Update Error Splitter Running' }

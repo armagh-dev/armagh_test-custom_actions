@@ -21,7 +21,7 @@ module Armagh
   module CustomActions
 
     class TestEditCurrentSplitter < Actions::Split
-      define_output_docspec 'edit_current_splitter_output'
+      define_output_docspec 'edit_current_splitter_output', 'Edit output'
 
       def split(doc)
         log_info { 'Edit Current Splitter Running' }

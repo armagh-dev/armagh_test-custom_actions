@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
     class TestSplitter < Actions::Split
-      define_output_docspec 'split_output'
+      define_output_docspec 'split_output', 'Splitter output'
 
       def split(doc)
         log_info { 'Test Split Running' }
