@@ -19,6 +19,7 @@ require 'noragh/gem/tasks'
 require 'rake/testtask'
 
 task :default => :test
+task :ci_vm => [:default]
 
 Rake::TestTask.new do |t|
   t.libs << 'test'

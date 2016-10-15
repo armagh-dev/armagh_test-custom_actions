@@ -27,7 +27,7 @@ module Armagh
       def collect
         log_info { 'Too Large Collector Running' }
 
-        source = {'type' => 'url', 'url' => 'from test'}
+        source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
         create('a' * TOO_LARGE_SIZE, {}, 'too_large_collector_output', source)
         sleep 1
       end

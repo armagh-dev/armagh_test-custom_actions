@@ -27,7 +27,7 @@ module Armagh
       def collect
         log_info { 'Test Collect Running' }
         sleep 1
-        source = {'type' => 'url', 'url' => 'from test'}
+        source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
         create('collected content', {}, 'collected_document', source)
         create("content\nfor\ndividing", {}, 'divide_collected_document', source)
       end

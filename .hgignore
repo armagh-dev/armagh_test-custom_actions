@@ -1,5 +1,5 @@
 syntax: glob
-*.gem
 Gemfile.lock
 coverage/*
-.idea/*
+.idea/
+pkg/
