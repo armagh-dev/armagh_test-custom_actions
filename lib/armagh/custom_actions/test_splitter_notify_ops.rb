@@ -22,7 +22,7 @@ module Armagh
 
     class TestSplitterNotifyOps < Actions::Split
 
-      define_output_docspec 'consume_output', 'Consume Output'
+      define_output_docspec 'output', 'Consume Output'
 
       def split(doc)
         notify_ops 'Ops Error'

@@ -21,12 +21,12 @@ module Armagh
   module CustomActions
 
     class TestEditCurrentSplitter < Actions::Split
-      define_output_docspec 'edit_current_splitter_output', 'Edit output'
+      define_output_docspec 'output', 'Edit output'
 
       def split(doc)
         log_info { 'Edit Current Splitter Running' }
 
-        edit(doc.document_id, 'edit_current_splitter_output') do |edit_doc|
+        edit(doc.document_id, 'output') do |edit_doc|
           edit_doc.content['test_content'] = 'This should not be saved'
         end
         sleep 1

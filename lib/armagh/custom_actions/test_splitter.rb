@@ -20,27 +20,27 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
     class TestSplitter < Actions::Split
-      define_output_docspec 'split_output', 'Splitter output'
+      define_output_docspec 'output', 'Splitter output'
 
       def split(doc)
         log_info { 'Test Split Running' }
         log_info { "Document ID: #{doc.document_id}" }
 
-        edit('split_1', 'split_output') do |edit_doc|
+        edit('split_1', 'output') do |edit_doc|
           edit_doc.content['text_1'] = 'text_content_1'
           edit_doc.metadata['touched_by'] ||= []
           edit_doc.metadata['touched_by'] << 'block_1'
           edit_doc.metadata['new'] = 'block_1' if edit_doc.new_document?
         end
 
-        edit('split_2', 'split_output') do |edit_doc|
+        edit('split_2', 'output') do |edit_doc|
           edit_doc.content['text_2'] = 'text_content_2'
           edit_doc.metadata['touched_by'] ||= []
           edit_doc.metadata['touched_by'] << 'block_2'
           edit_doc.metadata['new'] = 'block_2' if edit_doc.new_document?
         end
 
-        edit('split_1', 'split_output') do |edit_doc|
+        edit('split_1', 'output') do |edit_doc|
           edit_doc.content['text_3'] = 'text_content_3'
           edit_doc.metadata['touched_by'] ||= []
           edit_doc.metadata['touched_by'] << 'block_3'

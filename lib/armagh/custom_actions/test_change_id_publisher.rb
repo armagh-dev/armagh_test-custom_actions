@@ -21,6 +21,7 @@ module Armagh
   module CustomActions
 
     class TestChangeIdPublisher < Actions::Publish
+      define_output_docspec 'output', 'output'
 
       def publish(doc)
         log_info { 'Test Change ID Publish Running' }

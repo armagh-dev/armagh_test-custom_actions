@@ -21,12 +21,12 @@ module Armagh
   module CustomActions
 
     class TestTooLargeSplitter < Actions::Split
-      define_output_docspec 'too_large_splitter_output', 'Split output'
+      define_output_docspec 'output', 'Split output'
 
       def split(doc)
         log_info { 'Too Large Splitter Running' }
 
-        edit('split_123', 'too_large_splitter_output') do |edit_doc|
+        edit('split_123', 'output') do |edit_doc|
           edit_doc.content['test_content'] = 'This should not be saved'
           edit_doc.content['too_big'] = 'a' * TOO_LARGE_SIZE
         end

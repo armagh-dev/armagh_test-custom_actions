@@ -22,6 +22,8 @@ module Armagh
 
     class TestDivider < Actions::Divide
 
+      define_output_docspec 'output', 'Document that was divided'
+
       def divide(doc)
         content = File.read(doc.collected_file)
 

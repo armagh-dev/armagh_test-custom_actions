@@ -20,6 +20,8 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
     class TestBadPublisher < Actions::Publish
+      define_output_docspec 'output', 'output'
+
       def publish(doc)
         raise 'poorly implemented'
         sleep 1

@@ -21,12 +21,12 @@ module Armagh
   module CustomActions
 
     class TestUpdateErrorSplitter < Actions::Split
-      define_output_docspec 'update_error_splitter_output', 'split output'
+      define_output_docspec 'output', 'split output'
 
       def split(doc)
         log_info { 'Update Error Splitter Running' }
 
-        edit('update_id', 'update_error_splitter_output') do |edit_doc|
+        edit('update_id', 'output') do |edit_doc|
           edit_doc.content['update'] = 'This should not be saved'
           raise 'Failure'
         end

@@ -16,19 +16,15 @@
 #
 
 require 'armagh/actions'
-require_relative 'constants'
 
 module Armagh
   module CustomActions
 
-    class TestTooLargeCollector < Actions::Collect
-      define_output_docspec 'output', 'Collect output'
+    class TestNonCollector < Actions::Collect
+      define_output_docspec 'collected_document', 'Document directly collected'
 
       def collect
-        log_info { 'Too Large Collector Running' }
-
-        source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
-        create('a' * TOO_LARGE_SIZE, {}, 'output', source)
+        log_info { 'Test Non Collect Running' }
         sleep 1
       end
     end
