@@ -21,7 +21,6 @@ module Armagh
   module CustomActions
 
     class TestPublisher < Actions::Publish
-      define_output_docspec 'output', 'output'
 
       def publish(doc)
         log_info { 'Test Publish Running' }
