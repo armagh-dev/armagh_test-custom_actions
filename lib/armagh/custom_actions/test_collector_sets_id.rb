@@ -20,16 +20,14 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestCollector < Actions::Collect
+    class TestCollectorSetsID < Actions::Collect
       define_output_docspec 'collected_document', 'Document directly collected'
-      define_output_docspec 'divide_collected_document', 'Document that had a divider'
 
       def collect
-        log_info { 'Test Collect Running' }
+        log_info { 'Test Collect Sets ID Running' }
         sleep 1
         source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
-        create(collected: 'collected content', metadata: {}, docspec_name: 'collected_document', source: source)
-        create(collected: "content\nfor\ndividing", metadata: {}, docspec_name: 'divide_collected_document', source: source)
+        create(collected: 'collected content', metadata: {}, docspec_name: 'collected_document', source: source, document_id: 'collected_id')
       end
     end
   end
