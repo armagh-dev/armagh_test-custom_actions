@@ -20,16 +20,17 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestDivider < Actions::Divide
+    class TestLongPublisher < Actions::Publish
 
-      define_output_docspec 'output', 'Document that was divided'
+      def publish(doc)
+        log_info { 'Test Long Publish Running' }
 
-      def divide(doc)
-        content = File.read(doc.collected_file)
+        doc.content = {'content' => 'Some content'}
+        doc.title = 'Document Title'
 
-        log_info { 'Test Divider Running' }
-        sleep 2
-        create(content.gsub("\n", '-'), {'divide' => true})
+        sleep 5
+
+        log_info {'Test Long Publish Finished'}
       end
 
     end

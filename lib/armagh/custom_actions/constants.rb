@@ -1,4 +1,4 @@
-# Copyright 2016 Noragh Analytics, Inc.
+# Copyright 2017 Noragh Analytics, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 module Armagh
   module CustomActions
     NAME = 'armagh_test'
-    VERSION = '0.5.0'
+    VERSION = '0.5.1'
 
     TOO_LARGE_SIZE = 100_000_000
   end

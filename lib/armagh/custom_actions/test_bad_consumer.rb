@@ -1,4 +1,4 @@
-# Copyright 2016 Noragh Analytics, Inc.
+# Copyright 2017 Noragh Analytics, Inc.
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ module Armagh
     class TestBadConsumer < Actions::Consume
       def consume(doc)
         raise 'poorly implemented'
-        sleep 1
+        sleep 2
       end
 
     end

@@ -1,4 +1,4 @@
-# Copyright 2016 Noragh Analytics, Inc.
+# Copyright 2017 Noragh Analytics, Inc.
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ module Armagh
         doc.title     = fix_encoding 'The Title'
         doc.copyright = fix_encoding 'Copyright the future', 'utf-8'
 
-        sleep 1
+        sleep 2
       end
 
     end
