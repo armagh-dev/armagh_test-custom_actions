@@ -21,9 +21,6 @@ module Armagh
   module CustomActions
 
     class TestSplitterNotifyDev < Actions::Split
-
-      define_output_docspec 'output', 'Consume output'
-
       def split(doc)
         notify_dev 'Dev Error'
 

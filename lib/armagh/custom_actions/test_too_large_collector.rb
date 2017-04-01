@@ -22,13 +22,11 @@ module Armagh
   module CustomActions
 
     class TestTooLargeCollector < Actions::Collect
-      define_output_docspec 'output', 'Collect output'
-
       def collect
         log_info { 'Too Large Collector Running' }
 
         source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
-        create(collected: 'a' * TOO_LARGE_SIZE, metadata: {}, docspec_name: 'output', source: source)
+        create(collected: 'a' * TOO_LARGE_SIZE, metadata: {}, source: source)
         sleep 2
       end
     end

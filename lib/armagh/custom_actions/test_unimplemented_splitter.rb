@@ -21,7 +21,6 @@ module Armagh
   module CustomActions
 
     class TestUnimplementedSplitter < Actions::Split
-      define_output_docspec 'output', 'split output'
     end
   end
 end

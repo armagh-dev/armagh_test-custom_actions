@@ -21,13 +21,12 @@ module Armagh
   module CustomActions
 
     class TestCollectorSetsID < Actions::Collect
-      define_output_docspec 'collected_document', 'Document directly collected'
 
       def collect
         log_info { 'Test Collect Sets ID Running' }
         sleep 2
         source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
-        create(collected: 'collected content', metadata: {}, docspec_name: 'collected_document', source: source, document_id: 'collected_id')
+        create(collected: 'collected content', metadata: {}, source: source, document_id: 'collected_id')
       end
     end
   end

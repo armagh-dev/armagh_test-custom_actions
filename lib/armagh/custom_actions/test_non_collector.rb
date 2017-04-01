@@ -21,8 +21,6 @@ module Armagh
   module CustomActions
 
     class TestNonCollector < Actions::Collect
-      define_output_docspec 'collected_document', 'Document directly collected'
-
       def collect
         log_info { 'Test Non Collect Running' }
         sleep 2
