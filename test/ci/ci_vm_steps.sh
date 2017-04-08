@@ -5,9 +5,11 @@ set -x
 cp /jenkins/.hgrc .
 cp -r /jenkins/.gem .
 
-ruby --version
-mongod --version
 cd /workspace
 gem install bundler --no-doc
 bundle install
+
+ruby --version
+mongod --version
+
 rake ci_vm && rake prerelease
