@@ -24,7 +24,7 @@ module Armagh
 
       def collect
         log_info { 'Test Collect Sets ID Running' }
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
         source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
         create(collected: 'collected content', metadata: {}, source: source, document_id: 'collected_id')
       end

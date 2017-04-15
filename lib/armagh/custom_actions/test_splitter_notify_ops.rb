@@ -24,7 +24,7 @@ module Armagh
       def split(doc)
         notify_ops 'Ops Error'
 
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
         log_info 'Test Split Notify Ops Complete'
       end
 

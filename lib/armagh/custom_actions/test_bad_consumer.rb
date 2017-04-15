@@ -21,10 +21,9 @@ module Armagh
   module CustomActions
     class TestBadConsumer < Actions::Consume
       def consume(doc)
+        sleep CustomActions::SLEEP_TIME
         raise 'poorly implemented'
-        sleep 2
       end
-
     end
   end
 end

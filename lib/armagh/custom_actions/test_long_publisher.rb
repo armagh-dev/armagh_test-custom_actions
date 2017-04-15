@@ -28,7 +28,7 @@ module Armagh
         doc.content = {'content' => 'Some content'}
         doc.title = 'Document Title'
 
-        sleep 5
+        sleep CustomActions::SLEEP_TIME * 3
 
         log_info {'Test Long Publish Finished'}
       end

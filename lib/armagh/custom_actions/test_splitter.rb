@@ -45,7 +45,7 @@ module Armagh
           edit_doc.metadata['new'] = 'block_3' if edit_doc.new_document?
         end
 
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
       end
     end
   end

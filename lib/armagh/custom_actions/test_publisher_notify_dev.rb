@@ -23,7 +23,7 @@ module Armagh
 
       def publish(doc)
         notify_dev('BAD PUBLISHER')
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
       end
     end
   end

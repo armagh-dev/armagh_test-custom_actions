@@ -29,7 +29,7 @@ module Armagh
         doc.title     = fix_encoding 'The Title'
         doc.copyright = fix_encoding 'Copyright the future', 'utf-8'
 
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
       end
 
     end

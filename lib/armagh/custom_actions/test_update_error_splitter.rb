@@ -24,11 +24,12 @@ module Armagh
       def split(doc)
         log_info { 'Update Error Splitter Running' }
 
+        sleep CustomActions::SLEEP_TIME
+
         edit('update_id') do |edit_doc|
           edit_doc.content['update'] = 'This should not be saved'
           raise 'Failure'
         end
-        sleep 2
       end
     end
   end

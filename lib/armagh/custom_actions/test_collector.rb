@@ -25,7 +25,7 @@ module Armagh
 
       def collect
         log_info { 'Test Collect Running' }
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
         source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
         create(collected: 'collected content', metadata: {}, source: source)
         create(collected: "content\nfor\ndividing", metadata: {}, docspec_name: 'divide_collected_document', source: source)

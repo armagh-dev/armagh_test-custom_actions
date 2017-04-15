@@ -25,7 +25,7 @@ module Armagh
         content = File.read(doc.collected_file)
 
         log_info { 'Test Divider Running' }
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
         create(content.gsub("\n", '-'), {'divide' => true})
       end
 

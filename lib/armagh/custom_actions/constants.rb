@@ -21,5 +21,6 @@ module Armagh
     VERSION = '0.5.1'
 
     TOO_LARGE_SIZE = 100_000_000
+    SLEEP_TIME = 2
   end
 end

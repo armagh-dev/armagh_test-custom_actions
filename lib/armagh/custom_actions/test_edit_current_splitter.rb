@@ -24,10 +24,10 @@ module Armagh
       def split(doc)
         log_info { 'Edit Current Splitter Running' }
 
+        sleep CustomActions::SLEEP_TIME
         edit(doc.document_id) do |edit_doc|
           edit_doc.content['test_content'] = 'This should not be saved'
         end
-        sleep 2
       end
     end
   end

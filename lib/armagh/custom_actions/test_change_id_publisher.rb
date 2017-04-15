@@ -46,7 +46,7 @@ module Armagh
         doc.title = 'The Title'
         doc.copyright = 'Copyright the future'
 
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
       end
 
     end

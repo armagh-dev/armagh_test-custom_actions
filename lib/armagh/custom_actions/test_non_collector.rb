@@ -23,7 +23,7 @@ module Armagh
     class TestNonCollector < Actions::Collect
       def collect
         log_info { 'Test Non Collect Running' }
-        sleep 2
+        sleep CustomActions::SLEEP_TIME
       end
     end
   end

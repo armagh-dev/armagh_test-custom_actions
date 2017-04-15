@@ -25,9 +25,9 @@ module Armagh
       def collect
         log_info { 'Too Large Collector Running' }
 
+        sleep CustomActions::SLEEP_TIME
         source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
         create(collected: 'a' * TOO_LARGE_SIZE, metadata: {}, source: source)
-        sleep 2
       end
     end
   end

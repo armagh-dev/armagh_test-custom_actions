@@ -24,11 +24,11 @@ module Armagh
       def split(doc)
         log_info { 'Too Large Splitter Running' }
 
+        sleep CustomActions::SLEEP_TIME
         edit('split_123') do |edit_doc|
           edit_doc.content['test_content'] = 'This should not be saved'
           edit_doc.content['too_big'] = 'a' * TOO_LARGE_SIZE
         end
-        sleep 2
       end
     end
   end
