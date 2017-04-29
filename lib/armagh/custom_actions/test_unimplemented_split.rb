@@ -20,19 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestLongPublisher < Actions::Publish
-
-      def publish(doc)
-        log_info { 'Test Long Publish Running' }
-
-        doc.content = {'content' => 'Some content'}
-        doc.title = 'Document Title'
-
-        sleep CustomActions::SLEEP_TIME * 3
-
-        log_info {'Test Long Publish Finished'}
-      end
-
+    class TestUnimplementedSplit < Actions::Split
     end
   end
 end

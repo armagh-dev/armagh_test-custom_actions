@@ -19,10 +19,10 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
+    class TestPublishNotifyDev < Actions::Publish
 
-    class TestNonCollector < Actions::Collect
-      def collect
-        log_info { 'Test Non Collect Running' }
+      def publish(doc)
+        notify_dev('BAD PUBLISHER')
         sleep CustomActions::SLEEP_TIME
       end
     end

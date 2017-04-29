@@ -20,14 +20,15 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestCollectorSetsID < Actions::Collect
+    class TestDivide < Actions::Divide
+      def divide(doc)
+        content = File.read(doc.collected_file)
 
-      def collect
-        log_info { 'Test Collect Sets ID Running' }
+        log_info { 'Test Divide Running' }
         sleep CustomActions::SLEEP_TIME
-        source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
-        create(collected: 'collected content', metadata: {}, source: source, document_id: 'collected_id')
+        create(content.gsub("\n", '-'), {'divide' => true})
       end
+
     end
   end
 end

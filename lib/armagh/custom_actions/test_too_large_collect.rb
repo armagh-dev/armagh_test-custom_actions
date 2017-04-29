@@ -16,35 +16,19 @@
 #
 
 require 'armagh/actions'
+require_relative 'constants'
 
 module Armagh
   module CustomActions
 
-    class TestPublisher < Actions::Publish
-
-      def publish(doc)
-        log_info { 'Test Publish Running' }
-        log_info { "Document ID: #{doc.document_id}" }
-
-        published_doc = get_existing_published_document(doc)
-
-        if published_doc
-          published_content = published_doc.content
-          published_metadata = published_doc.metadata
-        else
-          published_content = {}
-          published_metadata = {}
-        end
-
-        doc.content.merge! published_content
-        doc.metadata.merge! published_metadata
-
-        doc.title     = fix_encoding 'The Title'
-        doc.copyright = fix_encoding 'Copyright the future', 'utf-8'
+    class TestTooLargeCollect < Actions::Collect
+      def collect
+        log_info { 'Too Large Collect Running' }
 
         sleep CustomActions::SLEEP_TIME
+        source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
+        create(collected: 'a' * TOO_LARGE_SIZE, metadata: {}, source: source)
       end
-
     end
   end
 end

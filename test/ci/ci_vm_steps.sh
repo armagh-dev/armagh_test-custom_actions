@@ -12,4 +12,13 @@ bundle install
 ruby --version
 mongod --version
 
-rake ci_vm && rake prerelease
+rake ci_vm
+
+BRANCH=$(hg branch)
+
+if [ "$BRANCH" == "default" ]
+then
+  rake prerelease
+fi
+
+

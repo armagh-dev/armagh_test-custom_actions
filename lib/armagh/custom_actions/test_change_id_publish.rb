@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestChangeIdPublisher < Actions::Publish
+    class TestChangeIdPublish < Actions::Publish
 
       def publish(doc)
         log_info { 'Test Change ID Publish Running' }

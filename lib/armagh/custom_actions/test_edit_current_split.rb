@@ -20,15 +20,15 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestDivider < Actions::Divide
-      def divide(doc)
-        content = File.read(doc.collected_file)
+    class TestEditCurrentSplit < Actions::Split
+      def split(doc)
+        log_info { 'Edit Current Split Running' }
 
-        log_info { 'Test Divider Running' }
         sleep CustomActions::SLEEP_TIME
-        create(content.gsub("\n", '-'), {'divide' => true})
+        edit(doc.document_id) do |edit_doc|
+          edit_doc.content['test_content'] = 'This should not be saved'
+        end
       end
-
     end
   end
 end

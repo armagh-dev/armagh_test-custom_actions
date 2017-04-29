@@ -20,14 +20,17 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestSplitterNotifyOps < Actions::Split
+    class TestUpdateErrorSplit < Actions::Split
       def split(doc)
-        notify_ops 'Ops Error'
+        log_info { 'Update Error Split Running' }
 
         sleep CustomActions::SLEEP_TIME
-        log_info 'Test Split Notify Ops Complete'
-      end
 
+        edit('update_id') do |edit_doc|
+          edit_doc.content['update'] = 'This should not be saved'
+          raise 'Failure'
+        end
+      end
     end
   end
 end

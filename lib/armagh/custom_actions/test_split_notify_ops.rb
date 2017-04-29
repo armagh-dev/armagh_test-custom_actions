@@ -19,11 +19,15 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
-    class TestBadConsumer < Actions::Consume
-      def consume(doc)
+
+    class TestSplitNotifyOps < Actions::Split
+      def split(doc)
+        notify_ops 'Ops Error'
+
         sleep CustomActions::SLEEP_TIME
-        raise 'poorly implemented'
+        log_info 'Test Split Notify Ops Complete'
       end
+
     end
   end
 end

@@ -19,11 +19,10 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
-    class TestPublisherNotifyDev < Actions::Publish
-
-      def publish(doc)
-        notify_dev('BAD PUBLISHER')
+    class TestBadConsume < Actions::Consume
+      def consume(doc)
         sleep CustomActions::SLEEP_TIME
+        raise 'poorly implemented'
       end
     end
   end

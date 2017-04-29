@@ -20,18 +20,16 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestPublisherSetsID < Actions::Publish
-
-      def publish(doc)
-        log_info { 'Test Publish Sets ID Running' }
-
-        doc.document_id = 'published_id'
-        doc.title     = fix_encoding 'The Title'
-        doc.copyright = fix_encoding 'Copyright the future', 'utf-8'
+    class TestTooLargeSplit < Actions::Split
+      def split(doc)
+        log_info { 'Too Large Split Running' }
 
         sleep CustomActions::SLEEP_TIME
+        edit('split_123') do |edit_doc|
+          edit_doc.content['test_content'] = 'This should not be saved'
+          edit_doc.content['too_big'] = 'a' * TOO_LARGE_SIZE
+        end
       end
-
     end
   end
 end

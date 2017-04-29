@@ -20,17 +20,19 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestUpdateErrorSplitter < Actions::Split
-      def split(doc)
-        log_info { 'Update Error Splitter Running' }
+    class TestLongPublish < Actions::Publish
 
-        sleep CustomActions::SLEEP_TIME
+      def publish(doc)
+        log_info { 'Test Long Publish Running' }
 
-        edit('update_id') do |edit_doc|
-          edit_doc.content['update'] = 'This should not be saved'
-          raise 'Failure'
-        end
+        doc.content = {'content' => 'Some content'}
+        doc.title = 'Document Title'
+
+        sleep CustomActions::SLEEP_TIME * 3
+
+        log_info {'Test Long Publish Finished'}
       end
+
     end
   end
 end

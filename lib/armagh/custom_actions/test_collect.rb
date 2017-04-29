@@ -20,7 +20,7 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestCollector < Actions::Collect
+    class TestCollect < Actions::Collect
       define_output_docspec 'divide_collected_document', 'Document that had a divider'
 
       def collect

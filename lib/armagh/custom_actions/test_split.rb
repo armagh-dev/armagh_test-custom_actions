@@ -19,7 +19,7 @@ require 'armagh/actions'
 
 module Armagh
   module CustomActions
-    class TestSplitter < Actions::Split
+    class TestSplit < Actions::Split
       def split(doc)
         log_info { 'Test Split Running' }
         log_info { "Document ID: #{doc.document_id}" }

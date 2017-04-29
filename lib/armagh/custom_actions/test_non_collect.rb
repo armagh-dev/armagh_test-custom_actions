@@ -20,14 +20,11 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestSplitterNotifyDev < Actions::Split
-      def split(doc)
-        notify_dev 'Dev Error'
-
+    class TestNonCollect < Actions::Collect
+      def collect
+        log_info { 'Test Non Collect Running' }
         sleep CustomActions::SLEEP_TIME
-        log_info 'Test Split Notify Dev Complete'
       end
-
     end
   end
 end

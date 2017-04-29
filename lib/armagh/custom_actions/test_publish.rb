@@ -20,16 +20,31 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestTooLargeSplitter < Actions::Split
-      def split(doc)
-        log_info { 'Too Large Splitter Running' }
+    class TestPublish < Actions::Publish
+
+      def publish(doc)
+        log_info { 'Test Publish Running' }
+        log_info { "Document ID: #{doc.document_id}" }
+
+        published_doc = get_existing_published_document(doc)
+
+        if published_doc
+          published_content = published_doc.content
+          published_metadata = published_doc.metadata
+        else
+          published_content = {}
+          published_metadata = {}
+        end
+
+        doc.content.merge! published_content
+        doc.metadata.merge! published_metadata
+
+        doc.title     = fix_encoding 'The Title'
+        doc.copyright = fix_encoding 'Copyright the future', 'utf-8'
 
         sleep CustomActions::SLEEP_TIME
-        edit('split_123') do |edit_doc|
-          edit_doc.content['test_content'] = 'This should not be saved'
-          edit_doc.content['too_big'] = 'a' * TOO_LARGE_SIZE
-        end
       end
+
     end
   end
 end

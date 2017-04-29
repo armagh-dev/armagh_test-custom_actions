@@ -20,7 +20,14 @@ require 'armagh/actions'
 module Armagh
   module CustomActions
 
-    class TestUnimplementedSplitter < Actions::Split
+    class TestCollectSetsID < Actions::Collect
+
+      def collect
+        log_info { 'Test Collect Sets ID Running' }
+        sleep CustomActions::SLEEP_TIME
+        source = Armagh::Documents::Source.new(type: 'url', url: 'from test')
+        create(collected: 'collected content', metadata: {}, source: source, document_id: 'collected_id')
+      end
     end
   end
 end
