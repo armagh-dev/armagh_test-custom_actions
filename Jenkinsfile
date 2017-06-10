@@ -51,15 +51,11 @@ currentBuild.result = "SUCCESS"
 
        if ((env.BRANCH_NAME == "default") && (currentBuild.result == 'SUCCESS')) {                                          
 
-         timeout(time: 5, unit: 'MINUTES') {
-           input 'Release to Nexus?'
-
-           sh """#!/bin/bash -l
-             echo -e "*********************************************\n** Prereleasing:" `hg identify -i` "\n*********************************************"
-             set -e
-             bundle exec rake prerelease
-           """
-         }
+         sh """#!/bin/bash -l
+           echo -e "*********************************************\n** Prereleasing:" `hg identify -i` "\n*********************************************"
+           set -e
+           bundle exec rake prerelease
+         """
        }
      }
   }
