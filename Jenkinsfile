@@ -24,16 +24,14 @@ def isNewBuild(name) {
 
 
 try {
-
 currentBuild.result = "SUCCESS"
-
 
   node('armagh-builder') {
 
      stage('Prep') {
 
        deleteDir()
-     
+
        checkout scm
 
        sh """#!/bin/bash -l
@@ -45,9 +43,9 @@ currentBuild.result = "SUCCESS"
          mongod --version
        """
      }
-  
+
      stage('Unit Test') {
-     
+
        sh """#!/bin/bash -l
          echo -e "*********************************************\n** Unit testing:" `hg identify -i` "\n*********************************************"
          set -e
@@ -56,18 +54,17 @@ currentBuild.result = "SUCCESS"
      }
 
      stage('Prerelease') {
-
-       if ((env.BRANCH_NAME == "default") && (currentBuild.result == 'SUCCESS') && isNewBuild('armagh_test-custom_actions')) {
-
-         sh """#!/bin/bash -l
-           echo -e "*********************************************\n** Prereleasing:" `hg identify -i` "\n*********************************************"
-           set -e
-           bundle exec rake prerelease
-         """
-
-         build job: '/armagh/default', wait: false
-       }
-     }
+       if ((env.BRANCH_NAME == "default") && (currentBuild.result == 'SUCCESS')) {
+         if (isNewBuild('armagh_test-custom_actions')) {
+           sh """#!/bin/bash -l
+             echo -e "*********************************************\n** Prereleasing:" `hg identify -i` "\n*********************************************"
+             set -e
+             bundle exec rake prerelease
+           """
+         }
+        build job: '/armagh/default', wait: false
+      }
+    }
   }
 }
 

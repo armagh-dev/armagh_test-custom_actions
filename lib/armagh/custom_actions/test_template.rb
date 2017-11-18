@@ -24,7 +24,7 @@ module Armagh
 
       define_parameter name: 'template',
                        description: 'The template.',
-                       type: 'populated_string',
+                       type: 'string',
                        required: false,
                        group: 'tacball_consume',
                        options: Actions.available_templates
